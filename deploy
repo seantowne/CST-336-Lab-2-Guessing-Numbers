@@ -8,6 +8,6 @@ fi
 git status
 git add -A
 git status
-git commit -m $comment
+git commit -m "$comment"
 git push origin master
 git push heroku master
