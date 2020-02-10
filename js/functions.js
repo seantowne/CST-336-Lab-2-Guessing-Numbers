@@ -10,7 +10,6 @@ resetButton.style.display = 'none';
 
 var winTally = 0;
 var lossTally = 0;
-var totalTally = 0;
 
 function checkGuess(){
     var userGuess = Number(guessField.value);
@@ -57,10 +56,11 @@ function checkGuess(){
 guessSubmit.addEventListener('click', checkGuess);
 
 function setTallys(){
-    document.getElementById("#winTally").innerHTML = winTally;
-    document.getElementById("#lossTally").innerHTML = lossTally;
-    document.getElementById("#totalTally").innerHTML = winTally + lossTally;
+    document.getElementById("winTally").innerHTML = winTally;
+    document.getElementById("lossTally").innerHTML = lossTally;
+    document.getElementById("totalTally").innerHTML = winTally + lossTally;
 }
+
 function setGameOver(){
     setTallys();
     guessField.disabled = true;
