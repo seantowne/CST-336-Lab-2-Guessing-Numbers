@@ -8,8 +8,23 @@ var guessCount = 1;
 var resetButton = document.querySelector("#reset");
 resetButton.style.display = 'none';
 
+var winTally = 0;
+var lossTally = 0;
+var totalTally = 0;
+
 function checkGuess(){
     var userGuess = Number(guessField.value);
+    
+    if ( (typeof userGuess) !== (typeof 1) ){
+        alert('Please only enter numbers between 1 and 99 inclusive');
+        return;
+    }
+    
+    if ( userGuess > 99 || userGuess < 1 ){
+        alert('Please only enter numbers between 1 and 99 inclusive');
+        return;
+    }
+    
     if ( guessCount === 1 ){
         guesses.innerHTML = 'Previous guesses: ';
     }
@@ -17,11 +32,13 @@ function checkGuess(){
     
     if ( userGuess === numberToGuess ){
         lastResult.innerHTML = 'Congratulations! You got it right!';
+        winTally += 1;
         lastResult.style.backgroundColor = 'green';
         lowOrHi.innerHTML = '';
         setGameOver();
     } else if ( guessCount === 7 ){
         lastResult.innerHTML = 'Sorry, you lost!';
+        lossTally += 1;
         setGameOver();
     }
     else {
@@ -39,7 +56,13 @@ function checkGuess(){
 }
 guessSubmit.addEventListener('click', checkGuess);
 
+function setTallys(){
+    document.getElementById("#winTally").innerHTML = winTally;
+    document.getElementById("#lossTally").innerHTML = lossTally;
+    document.getElementById("#totalTally").innerHTML = winTally + lossTally;
+}
 function setGameOver(){
+    setTallys();
     guessField.disabled = true;
     guessSubmit.disabled = true;
     resetButton.style.display = 'inline';
