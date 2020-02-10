@@ -12,14 +12,12 @@ var winTally = 0;
 var lossTally = 0;
 
 function checkGuess(){
-    var userGuess = guessField.value;
+    var userGuess = Number(guessField.value);
     
-    if ( typeof userGuess != 'number' ){
+    if ( isNaN(userGuess) ){
         alert('Please only enter numbers between 1 and 99 inclusive');
         return;
     }
-    
-    userGuess = Number(guessField.value);
     
     if ( userGuess > 99 || userGuess < 1 ){
         alert('Please only enter numbers between 1 and 99 inclusive');
