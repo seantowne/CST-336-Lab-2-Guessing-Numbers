@@ -14,7 +14,7 @@ var lossTally = 0;
 function checkGuess(){
     var userGuess = Number(guessField.value);
     
-    if ( (typeof userGuess) != (typeof 1) ){
+    if ( (typeof userGuess) != 'number' ){
         alert('Please only enter numbers between 1 and 99 inclusive');
         return;
     }
