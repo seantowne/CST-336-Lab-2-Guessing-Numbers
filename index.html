@@ -46,8 +46,35 @@
             resetButton.style.display = 'none';
             
             function checkGuess(){
-                alert('I am a place holder');
+                var userGuess = Number(guessField.value);
+                if ( guessCount === 1 ){
+                    guesses.innerHTML = 'Previous guesses: ';
+                }
+                guesses.innerHTML += userGuess + ' ';
+                
+                if ( userGuess === nubmerToGuess ){
+                    lastResult.innerHTML = 'Congratulations! You got it right!';
+                    lastResult.style.backgroundColor = 'green';
+                    lowOrHi.innerHTML = '';
+                    setGameOver();
+                } else if ( guessCount === 7 ){
+                    lastResult.innerHTML = 'Sorry, you lost!';
+                    setGameOver();
+                }
+                else {
+                    lastResult.innerHTML = 'Wrong!';
+                    lastResult.style.backgroundColor = 'red';
+                    if ( userGuess < numberToGuess ){
+                        lowOrHi.innerHTML = 'Last guess was too low!';
+                    }else if ( userGuess > numberToGuess ){
+                        lowOrHi.innerHTML = 'Last guess was too high!';
+                    }
+                }
+                guessCount++;
+                guessField.value = '';
+                guessField.focus();
             }
+            guessSubmit.addEventListener('click', checkGuess);
         </script>
     </body>
 </html>
