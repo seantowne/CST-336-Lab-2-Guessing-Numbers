@@ -19,7 +19,7 @@ function checkGuess(){
         return;
     }
     
-    var userGuess = Number(guessField.value);
+    userGuess = Number(guessField.value);
     
     if ( userGuess > 99 || userGuess < 1 ){
         alert('Please only enter numbers between 1 and 99 inclusive');
