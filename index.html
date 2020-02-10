@@ -21,16 +21,28 @@
         <div id="directions">
             Guess a number between 1 and 99 in seven attempts!
             <br><br>
-            Random Number: <span id="numberToGuess"></span>
+            <label for="guessField">Enter a guess: </label>
+            <input type="text" id="guessField" class="guessField">
+            <input type="submit" value="Submit guess" class="guessSubmit">
+            
+            <br><br>
+            <p id="guesses"></p>
+            <p id="lastResult"></p>
+            <p id="lowOrHi"></p>
+            <button id="reset">Reset</button>
+            
         </div>
         
         <script>
-            var randomNumber = 5 + 6;
-            console.log(randomNumber);
-            
             var numberToGuess = Math.floor(Math.random()*99) + 1;
-            console.log(numberToGuess);
             document.getElementById("numberToGuess").innerHTML = numberToGuess;
+            var guesses = document.querySelector("#guesses");
+            var lastResult = document.querySelector("#lastResult");
+            var lowOrHi = document.querySelector("#lowOrHi");
+            var guessSubmit = document.querySelector(".guessSubmit");
+            var guessField = document.querySelector(".guessField");
+            var guessCount = 1;
+            var resetButton = document.querySelector("#reset");
         </script>
     </body>
 </html>
