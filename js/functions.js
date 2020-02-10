@@ -1,5 +1,4 @@
 var numberToGuess = Math.floor(Math.random()*99) + 1;
-document.getElementById("numberToGuess").innerHTML = numberToGuess;
 var guesses = document.querySelector("#guesses");
 var lastResult = document.querySelector("#lastResult");
 var lowOrHi = document.querySelector("#lowOrHi");
